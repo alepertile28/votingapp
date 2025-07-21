@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "alepertile28/votingapp",
+  "pipelineDirectory": "votingapp",
+  "workspaceDirectory": "votingapp/votingapp",
+  "repositories": {
+    "alepertile28/votingapp": {
+      "repositoryPath": "votingapp/votingapp",
+      "lastRunOn": "07/21/2025 17:59:23 -03:00"
+    }
+  },
+  "lastRunOn": "07/21/2025 17:59:23 -03:00"
+}
