@@ -21,6 +21,6 @@ jobs:
 
     - name: Fazer deploy com Helm
       run: |
-        helm upgrade --install votingapp ./root/votingapp/helm \
+        helm upgrade --install votingapp /root/votingapp/helm \
           --namespace votingapp-lab 
 
