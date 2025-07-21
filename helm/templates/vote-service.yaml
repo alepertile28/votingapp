@@ -1,0 +1,17 @@
+apiVersion: v1 
+kind: Service
+metadata:
+  name: vote
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: vote
+spec:
+  type: {{ .Values.service.vote.type }}
+  ports:
+    - name: http
+      port: 80
+      {{- if eq .Values.service.vote.type "NodePort" }}
+      nodePort: {{ .Values.service.vote.nodePort }}
+      {{- end }}
+  selector:
+    app: vote

@@ -1,0 +1,37 @@
+namespace: votingapp-lab
+
+images:
+  vote: dockersamples/examplevotingapp_vote
+  result: dockersamples/examplevotingapp_result
+  worker: dockersamples/examplevotingapp_worker
+  redis: redis:apline
+  postgres: postgres:15-alpine
+
+resplicacount:
+  vote: 2
+  result: 2
+  worker: 1
+  redis: 1
+  postgres: 1
+
+postgres:
+  user: postgres
+  password: postgres
+
+service:
+  vote:
+    type: NodePort
+    nodePort: 30002
+  result:
+    type: NodePort
+    nodePort: 31001
+  redis:
+    type: ClusterIP
+  postgres:
+    type: ClusterIP
+
+ingress:
+  enabled: true
+  className: nginx
+  voteHost: voting.local
+  resultHost: result.local

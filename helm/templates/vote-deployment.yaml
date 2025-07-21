@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: vote
+spec:
+  replicas: {{ .Values.replicacount.vote }}
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata: 
+      name: vote
+      labels:
+        app: vote
+    spec:
+      containers:
+        - name: vote
+          image: {{ .Values.images.vote }}
+          ports:
+           - containerPort: 80
+          resources:
+           {{- toYaml .Values.resources.vote | nindent 12 }}
+
