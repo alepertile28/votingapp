@@ -18,19 +18,11 @@ jobs:
         if ! command -v helm >/dev/null; then
           curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
         fi
+    - name: Helm lint
+      run: helm lint helm
 
-    - name: Fazer deploy com Helm
-      id: deploy
-      run: |
-       set -e
-       helm upgrade --install votingapp /root/votingapp/helm \
-       --wait \
-       --timeout 120s
+    - name: Helm template (validação)
+      run: helm template helm
 
-     - name: Fazer rollback se falhar
-      if: failure()
-      run: |
-        echo "Deploy falhou, fazendo o rollback"
-        REV=$(helm history votingapp -o json | jq '.[-2].revision')
-        helm rollback votingapp $REV
+
   
