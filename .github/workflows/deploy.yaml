@@ -27,10 +27,10 @@ jobs:
        --wait \
        --timeout 120s
 
-    - name: Fazer rollback se falhar
+     - name: Fazer rollback se falhar
       if: failure()
       run: |
-        echo: "Deploy falhou, fazendo o rollback"
-        helm rollback votingapp
-          
+        echo "Deploy falhou, fazendo o rollback"
+        REV=$(helm history votingapp -o json | jq '.[-2].revision')
+        helm rollback votingapp $REV
   
