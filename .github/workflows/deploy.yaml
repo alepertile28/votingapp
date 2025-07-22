@@ -20,8 +20,12 @@ jobs:
         fi
 
     - name: Fazer deploy com Helm
+      id: deploy
       run: |
-        helm upgrade --install votingapp /root/votingapp/helm 
+       set -e
+       helm upgrade --install votingapp /root/votingapp/helm \
+       --wait \
+       --timeout 120s
 
     - name: Fazer rollback se falhar
       if: failure()
