@@ -23,3 +23,10 @@ jobs:
       run: |
         helm upgrade --install votingapp /root/votingapp/helm 
 
+    - name: Fazer rollback se falhar
+      if: failure()
+      run: |
+        echo: "Deploy falhou, fazendo o rollback"
+        helm rollback votingapp
+          
+  
