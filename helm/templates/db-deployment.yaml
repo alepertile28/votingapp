@@ -25,10 +25,10 @@ spec:
               value: {{ .Values.postgres.user }}
           ports: 
             - containerPort: 5432
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: db-data
-      volumes:
-         - name: db-data
-           persistentVolumeClaim:
-                claimName: pvc-postgres
+#          volumeMounts:
+#            - mountPath: /var/lib/postgresql/data
+#              name: db-data
+#      volumes:
+#         - name: db-data
+#           persistentVolumeClaim:
+#                claimName: pvc-postgres

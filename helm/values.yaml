@@ -36,9 +36,9 @@ ingress:
   voteHost: votelab.itbrasil.net
   resultHost: resultlab.itbrasil.net
 
-persistence:
-  postgresSize: 10Gi
-  redisSize: 5Gi
+#persistence:
+#  postgresSize: 10Gi
+#  redisSize: 5Gi
 
 resources:
   vote:

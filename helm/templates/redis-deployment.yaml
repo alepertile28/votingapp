@@ -20,10 +20,10 @@ spec:
           image: {{ .Values.images.redis }}
           ports:
             - containerPort: 6379
-          volumeMounts:
-            - mountPath: /data
-              name: redis-data
-      volumes:
-        - name: redis-data
-          persistentVolumeClaim:
-               claimName: pvc-redis
+#          volumeMounts:
+#            - mountPath: /data
+#              name: redis-data
+#      volumes:
+#        - name: redis-data
+#          persistentVolumeClaim:
+#               claimName: pvc-redis
