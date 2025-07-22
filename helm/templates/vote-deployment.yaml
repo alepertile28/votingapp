@@ -22,5 +22,36 @@ spec:
           ports:
            - containerPort: 80
           resources:
-           {{- toYaml .Values.resources.vote | nindent 12 }}
-
+           {{- toYaml .Values.resources.vote | nindent 12 }}          
+          {{- if .Values.readinessProbe.enabled }}
+          readinessProbe:
+            {{- if eq .Values.readinessProbe.type "exec" }}
+            exec:
+              command:
+               {{- toYaml .Values.readinessProbe.command | nindent 15 }}
+            {{- else if eq .Values.readinessProbe.type "httpGet" }}
+            httpGet:
+              path: {{ .Values.readinessProbe.path }}
+              port: 80
+            {{- end }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelayseconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.readinessProbe.successThreshold }}
+          {{- end }}
+          {{- if eq .Values.livenessProbe.enabled }}
+          livenessProbe:
+            {{- if eq .Values.livenessProbe.type "exec" }}
+            exec:
+              command:
+               {{- toYaml .Values.livenessProbe.command | nindent 15 }}
+            {{- else if eq .Values.livenessProbe.type "httpGet" }}
+            httpGet:
+              path: {{ .Values.livenessProbe.path }}
+              port: 80
+            {{- end }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelayseconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            successThreshold: {{ .Values.livenessProbe.successThreshold }}
+          {{- end }}

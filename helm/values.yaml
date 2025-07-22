@@ -48,4 +48,23 @@ resources:
       limits:
         cpu: 250m
         memory: 128Mi
+readinessProbe:
+  enabled: true
+  type: exec
+  command: ["curl", "-f", "http://localhost:80"]
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 2
+  successThreshold: 1
+  failureThreshold: 3
+
+livenessProbe:
+  enabled: true
+  type: exec
+  command: ["curl", "-f", "http://localhost:80"]
+  initialDelaySeconds: 10
+  timeoutSeconds: 2
+  successThreshold: 1
+  failureThreshold: 3
+
 
