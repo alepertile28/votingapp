@@ -9,7 +9,7 @@ images:
 
 replicacount:
   vote: 3
-  result: 2
+  result: 1
   redis: 1
   postgres: 1
   worker: 1
