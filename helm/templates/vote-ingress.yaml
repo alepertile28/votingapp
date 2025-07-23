@@ -5,14 +5,14 @@ metadata:
   name: vote
   namespace: {{ .Values.namespace }}
   annotations:
-    #cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   tls:
     - hosts: 
          - votelab.itbrasil.net
-      secretName: php-crt
+      secretName: vote-tls
   rules:
     - host: {{ .Values.ingress.voteHost }}
       http:
