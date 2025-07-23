@@ -34,7 +34,7 @@ O objetivo principal foi **construir um ambiente de entrega contínua (CI/CD)** 
 
 ##  Estrutura do projeto
 
-```text
+text
 votingapp/
 ├── .github/
 │   └── workflows/
