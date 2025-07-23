@@ -58,6 +58,8 @@ redis (fila)
 
 postgres (banco)
 
+---
+
 ##  CI/CD com GitHub Actions
 
 Ao fazer `git push`, o workflow é disparado automaticamente.
