@@ -8,7 +8,7 @@ images:
   postgres: postgres:15-alpine
 
 replicacount:
-  vote: 3
+  vote: 1
   result: 1
   redis: 1
   postgres: 1
