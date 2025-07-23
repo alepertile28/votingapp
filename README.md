@@ -34,7 +34,7 @@ O objetivo principal foi **construir um ambiente de entrega contínua (CI/CD)** 
 
 ##  Estrutura do projeto
 
-
+```text
 votingapp/
 ├── .github/
 │   └── workflows/
@@ -84,7 +84,7 @@ O runner self-hosted no cluster executa:
 ```bash
 git clone https://github.com/alepertile28/votingapp
 cd votingapp
-
+```
 ### 2. Confiugre o Helm
 helm upgrade --install votingapp ./helm/votingapp \
   --namespace votingapp-lab \
