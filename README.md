@@ -57,7 +57,7 @@ worker (processa votos)
 redis (fila)
 
 postgres (banco)
-
+```
 ---
 
 ##  CI/CD com GitHub Actions
