@@ -2,10 +2,10 @@ apiVersion: v1
 kind: PersistenVolumeClaim
 metadata:
   name: pvc-postgres
+  namespace: {{ .Values.namespace }}
 spec:
     accessModes:
       - ReadWriteOnce
     resources:
         requests:
-            storage: 10Gi
-    storageClassName: null
+            storage: {{ .Values.persistence.postgresSize }}
