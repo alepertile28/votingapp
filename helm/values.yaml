@@ -9,7 +9,7 @@ images:
 
 replicacount:
   vote: 2
-  result: 1
+  result: 2
   redis: 1
   postgres: 1
   worker: 1
@@ -36,9 +36,9 @@ ingress:
   voteHost: votelab.itbrasil.net
   resultHost: resultlab.itbrasil.net
 
-#persistence:
-#  postgresSize: 10Gi
-#  redisSize: 5Gi
+persistence:
+  postgresSize: 10Gi
+  redisSize: 5Gi
 
 resources:
   vote:
